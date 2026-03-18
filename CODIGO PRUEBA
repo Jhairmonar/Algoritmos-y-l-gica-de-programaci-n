@@ -1,0 +1,78 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main () {
+    int reto1, reto2, reto3, numErro, minutos, puntajeBase, sumaErrores, puntajeTotal=0;
+    string desafio, copia, mensaje, mensajeD, mensajeM, mensajeO;
+
+    cout << "Ingrese el puntaje del reto 1: ";
+    cin >> reto1;
+    cout << "Ingrese el puntaje del reto 2: ";
+    cin >> reto2;
+    cout << "Ingrese el puntaje del reto 3: ";
+    cin >> reto3;
+
+    cout << "Ingrese el numero de errores: ";
+    cin >> numErro;
+
+    cout << "Ingrese el tiempo total en minutos: ";
+    cin >> minutos;
+
+    cout << "Resolvio el desafio extra? (Si/No): ";
+    cin >> desafio;
+
+    cout << "Realizo copia? (Si/No): ";
+    cin >> copia;
+
+    puntajeBase = reto1 + reto2 + reto3;
+    sumaErrores = numErro * 4;
+    puntajeTotal = puntajeBase - sumaErrores;
+
+     if (desafio == "Si") {
+        puntajeTotal = puntajeBase + 15;
+        mensajeD = "Completo desafio extra";
+    } else {
+        puntajeTotal = puntajeBase;
+    }
+
+    if (minutos <= 30) {
+        puntajeTotal = puntajeTotal + 10;
+        mensajeM = "Menos de 30 minutos";
+    }
+
+
+    if (copia == "No") {
+        if (puntajeTotal >= 0 && puntajeTotal <= 29){
+        mensaje = "Principiante";
+    } else if (puntajeTotal >= 30 && puntajeTotal <= 49){
+        mensaje = "Basico";
+    } else if (puntajeTotal >= 50 && puntajeTotal <= 69){
+        mensaje = "Intermedio";
+    } else if (puntajeTotal >= 70 && puntajeTotal <= 89){
+        mensaje = "Avanzado";
+    } else {
+        mensaje = "Experto";
+    }
+
+    } else {
+        mensaje = "Descalificado por copia ";
+    }
+
+    if (puntajeTotal >= 100 && numErro > 10) {
+        mensajeO = "Resultado inconsistente: revisar calidad de resolucion";
+    } else {
+        mensajeO = "Sin observaciones";
+    }
+
+    cout << "\n--- Resultados ---" << endl;
+    cout << "Puntaje Base: " << puntajeBase << endl;
+    cout << "Penalizacion por errores: " << sumaErrores << endl;
+    cout << "Bonificacion: " << mensajeD << ", " << mensajeM << endl;
+    cout << "Puntaje Final: " << puntajeTotal << endl;
+    cout << "Nivel: " << mensaje << endl;
+    cout << "Observacion: " << mensajeO << endl;
+
+    return 0;
+}
