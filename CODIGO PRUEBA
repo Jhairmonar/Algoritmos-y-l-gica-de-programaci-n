@@ -2,11 +2,11 @@
 #include <string>
 
 using namespace std;
-
+//Declaración de variables 
 int main () {
     int reto1, reto2, reto3, numErro, minutos, puntajeBase, sumaErrores, puntajeTotal=0;
     string desafio, copia, mensaje, mensajeD, mensajeM, mensajeO;
-
+//Entrada de datos 
     cout << "Ingrese el puntaje del reto 1: ";
     cin >> reto1;
     cout << "Ingrese el puntaje del reto 2: ";
@@ -25,11 +25,11 @@ int main () {
 
     cout << "Realizo copia? (Si/No): ";
     cin >> copia;
-
+//Proceso para calcular el puntaje base 
     puntajeBase = reto1 + reto2 + reto3;
     sumaErrores = numErro * 4;
     puntajeTotal = puntajeBase - sumaErrores;
-
+//Condiciones para determinar el puntaje final 
      if (desafio == "Si") {
         puntajeTotal = puntajeBase + 15;
         mensajeD = "Completo desafio extra";
@@ -65,7 +65,7 @@ int main () {
     } else {
         mensajeO = "Sin observaciones";
     }
-
+//Salida de datos (Lo que el usuario visualizará 
     cout << "\n--- Resultados ---" << endl;
     cout << "Puntaje Base: " << puntajeBase << endl;
     cout << "Penalizacion por errores: " << sumaErrores << endl;
